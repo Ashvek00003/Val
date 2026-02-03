@@ -1,0 +1,115 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Be My Valentine 💘</title>
+
+<style>
+    body {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        font-family: system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    img {
+        width: 90%;
+        max-width: 320px;
+        margin: 20px auto;
+        display: block;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin: 10px 0 20px;
+    }
+
+    .buttons {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+        position: absolute;
+        transition: transform 0.2s;
+        touch-action: manipulation;
+    }
+
+    #yesBtn {
+        background: #ff3366;
+        color: white;
+        left: 15%;
+        top: 70px;
+    }
+
+    #noBtn {
+        background: #777;
+        color: white;
+        left: 55%;
+        top: 70px;
+    }
+
+    #message {
+        display: none;
+        font-size: 1.6rem;
+        margin-top: 30px;
+        color: #ff66cc;
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        button {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<script>
+    function moveNoButton() {
+        const noBtn = document.getElementById("noBtn");
+        const box = document.querySelector(".buttons");
+
+        const maxX = box.clientWidth - noBtn.offsetWidth;
+        const maxY = box.clientHeight - noBtn.offsetHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    function sayYes() {
+        document.getElementById("message").style.display = "block";
+        document.querySelector(".buttons").style.display = "none";
+    }
+</script>
+
+</head>
+<body>
+
+    <img src="C:\Users\Ashvek\Downloads\Val_jsp\will-you-be-my-valentine-be-my-valentine.gif" alt="Valentine">
+
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">YES 💘</button>
+        <
