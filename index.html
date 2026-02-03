@@ -73,19 +73,21 @@
 </style>
 
 <script>
-    function moveNoButton() {
+   function moveNoButton() {
         const noBtn = document.getElementById("noBtn");
-        const box = document.querySelector(".buttons");
 
-        const maxX = box.clientWidth - noBtn.offsetWidth;
-        const maxY = box.clientHeight - noBtn.offsetHeight;
+        // Use the full screen instead of small box
+        const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+        const maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
 
+        noBtn.style.position = "fixed"; // escape the container
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
     }
+
 
     function sayYes() {
         document.getElementById("message").style.display = "block";
@@ -98,14 +100,14 @@
 
     <img src="will-you-be-my-valentine-be-my-valentine.gif" alt="Valentine">
 
-    <h1>Will you be my Valentine? 💖</h1>
+    <h1>Will you be my Valentine💖</h1>
 
     <div class="buttons">
         <button id="yesBtn" onclick="sayYes()">YES 💘</button>
         <button id="noBtn"
                 onmouseover="moveNoButton()"
                 ontouchstart="moveNoButton()">
-            NO 🙈
+            NO
         </button>
     </div>
 
